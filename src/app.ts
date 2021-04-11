@@ -23,7 +23,7 @@ class App {
         });
         if(controllers.length <= 0) { this.app.use('/', function(request: express.Request, response: express.Response){
             response.json({
-                "message": "init"
+                "message": "No hay rutas del API!"
             })
         }) }
         else{
