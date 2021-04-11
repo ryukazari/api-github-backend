@@ -1,0 +1,32 @@
+{
+  "name": "api-github-backend",
+  "version": "1.0.0",
+  "description": "Nodejs project using github api",
+  "main": "index.js",
+  "scripts": {
+    "ts:node": "ts-node src/index.ts",
+    "clean": "del build",
+    "build": "tsc",
+    "start": "node build/src",
+    "dev": "nodemon"
+  },
+  "keywords": [
+    "Node.js",
+    "Github",
+    "API",
+    "Typescript"
+  ],
+  "author": "ryukazari",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node-fetch": "^2.5.10",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}
