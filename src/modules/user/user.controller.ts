@@ -20,6 +20,12 @@ class UserController {
         fetch(`${Config.GITHUB_API_URL}/users/${username}`)
             .then(res => res.json())
             .then(json => {
+                if(Reflect.has(json, 'message')){
+                    response.status(500).json({
+                        status: 500,
+                        data: json
+                    })
+                }
                 let userReturned: User = {
                     id: json.id,
                     avatar_url: json.avatar_url,

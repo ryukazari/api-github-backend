@@ -1,4 +1,5 @@
 import express, { response } from 'express';
+import cors from 'cors';
 class App {
     public app: express.Application;
     public port: string;
@@ -12,8 +13,23 @@ class App {
     }
     
     private initializeMiddlewares() {
+        const options: cors.CorsOptions = {
+            allowedHeaders: [
+              'Origin',
+              'X-Requested-With',
+              'Content-Type',
+              'Accept',
+              'X-Access-Token'
+            ],
+            credentials: false,
+            methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+            origin: "*",
+            preflightContinue: false,
+        };
+
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended: false}))
+        this.app.use(cors(options));
     }
     
     private initializeControllers(controllers: any[]) {
