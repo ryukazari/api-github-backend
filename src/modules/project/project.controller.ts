@@ -23,7 +23,7 @@ class ProjectController {
             .then(res => res.json())
             .then(json => {
                 if(Reflect.has(json, 'message')){
-                    response.status(500).json({
+                    return response.status(500).json({
                         status: 500,
                         data: json
                     })
@@ -47,7 +47,7 @@ class ProjectController {
                     }
                     projectsToReturn.push(projectTemp);
                 });
-                response.status(200).json({
+                return response.status(200).json({
                     status: 200,
                     data: projectsToReturn
                 })
@@ -59,7 +59,7 @@ class ProjectController {
             .then(res => res.json())
             .then(json => {
                 if(Reflect.has(json, 'message')){
-                    response.status(500).json({
+                    return response.status(500).json({
                         status: 500,
                         data: json
                     })
@@ -79,7 +79,7 @@ class ProjectController {
                     url: json.url,
                     description: json.description,
                 }
-                response.status(200).json({
+                return response.status(200).json({
                     status: 200,
                     data: projectTemp
                 })

@@ -23,7 +23,7 @@ class CommitController {
             .then(res => res.json())
             .then(json => {
                 if(Reflect.has(json, 'message')){
-                    response.status(500).json({
+                    return response.status(500).json({
                         status: 500,
                         data: json
                     })
@@ -43,7 +43,7 @@ class CommitController {
                     }
                     commitReturned.push(commitTemp);
                 });
-                response.status(200).json({
+                return response.status(200).json({
                     status: 200,
                     data: commitReturned
                 })
@@ -56,7 +56,7 @@ class CommitController {
         .then(res => res.json())
         .then(json => {
             if(Reflect.has(json, 'message')){
-                response.status(500).json({
+                return response.status(500).json({
                     status: 500,
                     data: json
                 })
@@ -85,7 +85,7 @@ class CommitController {
                 url: json.url,
                 files: filesTemp
             };
-            response.status(200).json({
+            return response.status(200).json({
                 status: 200,
                 data: commitReturned
             })

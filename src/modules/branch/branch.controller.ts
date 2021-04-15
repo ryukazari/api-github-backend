@@ -21,13 +21,13 @@ class BranchController {
             .then(res => res.json())
             .then(json => {
                 if(Reflect.has(json, 'message')){
-                    response.status(500).json({
+                    return response.status(500).json({
                         status: 500,
                         data: json
                     })
                 }
                 let branchesToReturn: Branch[] = json;
-                response.status(200).json({
+                return response.status(200).json({
                     status: 200,
                     data: branchesToReturn
                 })
