@@ -32,7 +32,7 @@ class UserController {
                     created_at: json.created_at,
                     login: json.login,
                     repos_url: json.repos_url,
-                    url: json.url
+                    url: json.html_url
                 }
                 return response.status(200).json({
                     status: 200,

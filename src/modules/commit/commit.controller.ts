@@ -12,11 +12,12 @@ class CommitController {
     }
     
     public intializeRoutes() {
-        this.router.get(`${this.path}/`, this.getAllCommits);
-        this.router.get(`${this.path}/:sha`, this.getCommit);
+        this.router.post(`${this.path}`, this.getAllCommits);
+        this.router.post(`${this.path}/:sha`, this.getCommit);
     }
     
     getAllCommits = (request: express.Request, response: express.Response) => {
+        console.log("qwe")
         const { username, project, branch } = request.body;
         let branchRoute = branch=="" ? '' : `?sha=${branch}`;
         fetch(`https://api.github.com/repos/${username}/${project}/commits${branchRoute}`)

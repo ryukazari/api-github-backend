@@ -13,7 +13,7 @@ class ProjectController {
     }
     
     public intializeRoutes() {
-        this.router.get(`${this.path}/`, this.getProject);
+        this.router.post(`${this.path}/`, this.getProject);
         this.router.get(`${this.path}/:username`, this.getAllProjects);
     }
     

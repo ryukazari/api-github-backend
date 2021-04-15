@@ -12,7 +12,7 @@ class BranchController {
     }
     
     public intializeRoutes() {
-        this.router.get(`${this.path}/`, this.getAllBranches);
+        this.router.post(`${this.path}/`, this.getAllBranches);
     }
     
     getAllBranches = (request: express.Request, response: express.Response) => {
